@@ -1,2 +1,0 @@
-class ControlSequence:
-    pass

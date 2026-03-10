@@ -1,16 +1,40 @@
-# Ignore all .env files anywhere in the repo
+# World files
 **/.env
+**/.env.*
 
-# python
-.venv/
+# Python
+**/.venv/
+**/__pycache__/
+**/*.pyc
+**/*.py[cod]
+**/*$py.class
 src/*.egg-info/
-__pycache__/
-.mypy_cache
-.pytest_cache
 
-#pycharm
-.idea/
-*.py[cod]
-*$py.class
-congfig/
-data/
+# Python caches
+**/.mypy_cache/
+**/.pytest_cache/
+
+# PyCharm
+**/.idea/
+
+# LaTeX cache
+**/.livelatex-cache/
+
+# LaTeX auxiliary files
+**/*.aux
+**/*.log
+**/*.out
+**/*.gz
+
+# Graphviz generated files
+**/*.dot
+
+# Generated PDFs
+**/*.pdf
+
+# Root directories
+/out/
+/data/
+/dist/
+/configs/
+/config/

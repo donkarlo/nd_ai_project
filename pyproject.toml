@@ -1,12 +1,12 @@
 [project.scripts]
-sociomind = "nd_semiotic.__main__:main"
+sociomind = "nd_ai.__main__:main"
 
 [build-system]
 requires = ["setuptools>=64", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "nd_semiotic"
+name = "nd_ai"
 version = "1.0.0"
 dependencies = [
     "ruamel.yaml>=0.17.40,<0.18",
@@ -18,7 +18,7 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
     "mypy>=1.10",
-    "build>=1.2.1", # convenience: lets you run `python -m composing`
+    "build>=1.2.1", # convenience: lets you run `python -m builder`
 ]
 
 [tool.mypy]
@@ -29,7 +29,7 @@ ignore_missing_imports = true
 mypy_path = ["./src"]
 namespace_packages = true
 explicit_package_bases = true
-files = ["nd_semiotic", "tests"]
+files = ["nd_ai", "tests"]
 exclude = '(^|/)conftest\.py$'
 
 [tool.setuptools]
