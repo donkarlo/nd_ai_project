@@ -7,4 +7,3 @@ class Latex(Component, BaseComposite):
     def __init__(self):
         BaseComposite.__init__(self)
         Component.__init__(self)
-

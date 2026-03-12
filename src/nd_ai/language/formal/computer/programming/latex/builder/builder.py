@@ -1,6 +1,6 @@
 from abc import abstractmethod
 
-from nd_ai.language.formal.computer.programming.latex.builder.kind.core.kinds import Kinds
+from nd_ai.language.formal.computer.programming.latex.builder.kinds.core.kinds import Kinds
 
 
 class Builder(ABC):
