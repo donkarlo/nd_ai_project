@@ -1,0 +1,2 @@
+class Preamble(Composite):
+    pass

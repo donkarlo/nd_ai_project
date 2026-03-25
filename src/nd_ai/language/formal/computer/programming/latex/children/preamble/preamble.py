@@ -1,2 +1,0 @@
-class Preamble:
-    pass

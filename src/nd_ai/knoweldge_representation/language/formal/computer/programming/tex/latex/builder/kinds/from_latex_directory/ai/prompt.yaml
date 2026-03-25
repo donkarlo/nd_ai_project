@@ -1,0 +1,21 @@
+# instructions is in yaml format
+instructions: |
+  start from the given directory and search for the file naming exactly the same as the given directory name.
+  
+  Description of the task:
+  
+  
+  step 1:
+  You must recursively go through all the folders of the given folder to __init__ and using the composite pattern that I will give the base to you build a hierarchical tree of a latex document in to self._root_latex_composite.
+  
+  
+  . No already added packages or commands or macro etc should not be included repeatedly. That's why you build a document in a composite (pattern) document.
+  - find the file that has the same name as the given directory name.
+  - look at the relative paths that are \included or \inputed by the order they appear in that file and include/input their tex. Some of these files are independent documents. Some of them are not. If they are complete documents,  add the packages that are not already present in self._root_latex_composite. then go into their document environement and include/input the text inside it.
+    if you find
+    - \cite{}
+    - \ref{}
+    
+    do This variable is following the composite pattern.
+  
+  When finshed recursively by alphabets go inside the files and first follow the inputs and the includes and add them to the document tree. also add the packages that already dont exist inside the current preamble.
