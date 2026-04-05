@@ -1,6 +1,6 @@
-from nd_ai.knoweldge_representation.language.formal.computer.programming.tex.latex.composition.composite import Composite as LatexComponent
+from nd_ai.knoweldge_representation.language.formal.computer.programming.tex.latex.composition.composite import Composite as LatexComposite
 
 
-class Latex(LatexComponent):
+class Latex(LatexComposite):
     def __init__(self):
-        pass
+        LatexComposite.__init__(self)
