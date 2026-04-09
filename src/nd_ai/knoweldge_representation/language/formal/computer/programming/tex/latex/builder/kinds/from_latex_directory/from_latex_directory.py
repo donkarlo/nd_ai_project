@@ -10,10 +10,11 @@ from nd_utility.os.file_system.path.file import File
 
 
 class FromLatexDirectory(Builder):
-    def __init__(self, root_directory: Directory, bibliography_file: File):
+    def __init__(self, root_directory: Directory, bibliography_file: File, starting_part: str):
         """
 
         """
+        self._starting_part = starting_part
         self._latex_start_directory = root_directory
         self._shared_bibliography = bibliography_file
 
@@ -40,7 +41,6 @@ class FromLatexDirectory(Builder):
             for child in self._composite_structure.walk():
                 self._composed_string += child.stringify()
 
-
     def save_composed_string_to_tex_file(self, file: File) -> bool:
         pass
 
@@ -50,5 +50,6 @@ if __name__ == "__main__":
 
     bibliography_path = "/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib"
 
-    composing_from_text_directory = FromLatexDirectory(directory_path, bibliography_path)
+    starting_part = "chapter"
+    composing_from_text_directory = FromLatexDirectory(directory_path, bibliography_path, starting_part)
     composing_from_text_directory.build_composed_string()

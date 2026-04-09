@@ -32,21 +32,26 @@ building a latex file from a hierarchy of folders:
           methods:
             - __init__:
               arguments:
-                - root_directory: this is the first document and has the absolute path to the directory where the consituing .text files are organnised in a hiererachical directory structure.
-                - bibliography_file: is the second argument and includes the .bib file with all the citations which are mentioned the .tex files used in the root_directory path
+                root_directory: this is the first document and has the absolute path to the directory where the consituing .text files are organnised in a hiererachical directory structure.
+                bibliography_file: is the second argument and includes the .bib file with all the citations which are mentioned the .tex files used in the root_directory path
+                start_part: from what it should start? for example a book can be started by chapter and it can end to section, subsection subsubsection and finally paragraph
 
-            - build_composite_structure:
-              instructions:
-                You must recursively go through all the folders of the given folder to __init__ and using the composite pattern that I will give the base to you build a hierarchical tree of a latex document in to self._composite_structure.
-              
-              
-                . No already added packages or commands or macro etc should not be included repeatedly. That's why you build a document in a composite (pattern) document.
-                - find the file that has the same name as the given directory name.
-                - look at the relative paths that are \included or \inputed by the order they appear in that file and include/input their tex. Some of these files are independent documents. Some of them are not. If they are complete documents,  add the packages that are not already present in self._composite_structure. then go into their document environement and include/input the text inside it.
-                  if you find
-                  - \cite{}
-                  - \ref{}
-                  
-                  do This variable is following the composite pattern.
-    
-                When finshed recursively by alphabets go inside the files and first follow the inputs and the includes and add them to the document tree. also add the packages that already dont exist inside the current preamble.
+            - build_latex:
+              step by step instructions:
+                description: "You must recursively go through all the folders of the given folder to self._root_directory and using the composite pattern build the composite structure of a latex document using the already existing or adding the composite inherited classes that  nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/parts, following these rules:"
+                rules:
+                  - find the file that has the same name as the given directory name that is given in self._latex_start_directory.
+                  - look at the relative paths that are \include or \input by the order they appear in that file and include/input their tex.
+                  - When including all those files are finished, then include alphabetically the files that where not mentioned in include/input but they exist in self._root_directory directory alphabetically.
+                  - When the root directory is finished, open the first folder in self._root_directory alphabetacally and look for the file with the same name as the folder and do the same unless the files was already included in the main latex composite.
+                  - continue the above approach recursively until all files and folders are recursively finished.
+
+                  - After adding all the files in the given directory, then
+                  - Some of these files are independent documents. Some of them are not. If they are complete documents,  add the packages that are not already present in self._composite_structure. then go into their document environement and include/input the text inside it.
+                    if you find
+                    - \cite{}
+                    - \ref{}
+                    
+                    do This variable is following the composite pattern.
+                    
+                    When finshed recursively by alphabets go inside the files and first follow the inputs and the includes and add them to the document tree. also add the packages that already dont exist inside the current preamble.
