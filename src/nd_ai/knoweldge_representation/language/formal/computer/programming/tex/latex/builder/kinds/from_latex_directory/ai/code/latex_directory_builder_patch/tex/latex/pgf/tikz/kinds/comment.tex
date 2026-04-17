@@ -1,0 +1,10 @@
+% comment.tex
+\newcommand{\commenttopright}[4]{% #1 target, #2 name, #3 tex, #4 shift
+    \node[gray, anchor=south west] (#2) at ([xshift=#4,yshift=6mm]#1.north east) {\shortstack{#3}};
+    \draw[dashed, gray, <-] (#2.south west) -| (#1.east);
+}
+
+\newcommand{\commenttopleft}[4]{% #1 target, #2 name, #3 tex, #4 shift
+    \node[gray, anchor=south east] (#2) at ([xshift=-#4,yshift=6mm]#1.north west) {\shortstack{#3}};
+    \draw[dashed, gray, <-] (#2.south east) |- (#1.west);
+}

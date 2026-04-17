@@ -1,7 +1,7 @@
 from nd_ai.knoweldge_representation.language.formal.computer.programming.tex.latex.builder.builder import Builder
 from nd_ai.knoweldge_representation.language.formal.computer.programming.tex.latex.latex import \
     Latex
-from nd_ai.knoweldge_representation.language.formal.computer.programming.tex.latex.parts.environment.kinds.document.document import \
+from nd_ai.knoweldge_representation.language.formal.computer.programming.tex.latex.parts.environment.kind.document.document import \
     Document
 from nd_ai.knoweldge_representation.language.formal.computer.programming.tex.latex.parts.preamble.control_sequence.documentclass.documentclass import \
     Documentclass
@@ -21,14 +21,14 @@ class FromLatexDirectory(Builder):
     def build_latex(self) -> Latex:
         self._composite_structure = Latex()
         self._preamble = Latex()
-        self._document = Document()
+        self._document_environment = Document()
         self._bibliography = Latex()
 
         #
         self._composite_structure.add_child(self._preamble)
         self._preamble.add_child(Documentclass())
-        self._composite_structure.add_child(self._document)
-        self._document.add_child(self._bibliography)
+        self._composite_structure.add_child(self._document_environment)
+        self._document_environment.add_child(self._bibliography)
 
         # Lazy loading
         self._composed_string = None

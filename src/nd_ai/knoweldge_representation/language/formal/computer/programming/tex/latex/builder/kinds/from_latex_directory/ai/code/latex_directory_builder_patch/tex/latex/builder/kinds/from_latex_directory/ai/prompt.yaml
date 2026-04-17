@@ -1,0 +1,51 @@
+# instructions is in yaml format
+building a latex file from a hierarchy of folders:
+  intention: "Building and saving a single latex file for compiling from "
+  codeing style:
+    - Keep everything object oriented
+    - Always keep one class per file and create a hierarchy of directories for python files whenever necessary
+    - dont use @dataclass
+    - dont use @property, write all the getters and setters you need explicitly for a class such as get_property_foo_bar()
+    - Follow as much as possible the code style that I give you in the already develped files
+    - You must write the need classes yourself according to my examples. If I miss something you should creat yourself.
+
+  instructions:
+    goals:
+      - you should create the code that by a given directory and and a given .bib file, it should create the the structure of a single .tex file using the composite design pattern that I give you.
+    pre information:
+      path to the base composite folder:
+        absolute_paths:
+          - /home/donkarlo/Dropbox/repo/nd_utility_project/src/nd_utility/oop/design_pattern/structural/composition/composite.py
+          - /home/donkarlo/Dropbox/repo/nd_utility_project/src/nd_utility/oop/design_pattern/structural/composition/component.py
+          - /home/donkarlo/Dropbox/repo/nd_utility_project/src/nd_utility/oop/design_pattern/structural/composition/leaf.py
+        package:
+          path: /home/donkarlo/Dropbox/repo/nd_utility_project/src/nd_utility/
+          situation: nd_utility  package is already installed with the same name
+
+    Giving you what is already developed":
+      "nd utility": null
+      "input zip files":
+        your input zip files:
+          - the first one which include the code that I have already developed to generate a single .tex file from which you should use to build the hierarchy of tex file with its biblio graphy using composite design pattern. You should start complete the code from /language/formal/computer/programming/tex/latex/builder/kind/from_latex_directory/from_latex_directory.py
+          - the second is the zip file named composition that contains the base Component, Leaf and Composite classes that I use for all composites in my projects for holding hiererachical parts including the one for creatin this .tex project.
+
+        FromLatexDirectory class:
+          methods:
+            - __init__:
+              arguments:
+                root_directory: this is the first document and has the absolute path to the directory where the consituing .text files are organnised in a hiererachical directory structure.
+                bibliography_file: is the second argument and includes the .bib file with all the citations which are mentioned the .tex files used in the root_directory path
+                start_part: from what it should start? for example a book can be started by chapter and it can end to section, subsection subsubsection and finally paragraph
+
+            - build_latex:
+              step by step instructions:
+                description: "You must recursively go through all the folders of the given folder to self._root_directory and using the composite pattern build the composite structure of a latex document using the already existing or adding the composite inherited classes that  nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/parts, following these rules:"
+                rules:
+                  - find the file that has the same name as the given directory name that is given in self._latex_start_directory.
+                  - look at the relative paths that are \include or \input by the order they appear in that file and include/input their tex.
+                  - When including all those files are finished, then include alphabetically the files that where not mentioned in include/input but they exist in self._root_directory directory alphabetically.
+                  - When the root directory is finished, open the first folder in self._root_directory alphabetacally and look for the file with the same name as the folder and do the same unless the files was already included in the main latex composite.
+                  - continue the above approach recursively until all files and folders are recursively finished.
+
+                  - Some of the .tex files are independent documents (they have document environment, primble etc). Some of them are not.
+                    - If they are complete documents,  add the packages and whatever command and control sequences that do not exist already in preamble child in self._composite_structure's preamble child with given arguments.

@@ -1,0 +1,16 @@
+schema:
+  example:
+    - definition:
+        tex:
+          definition:
+            1:
+              cite:
+                url: https://en.wikipedia.org/wiki/Autocorrelation
+                say: Autocorrelation, sometimes known as serial correlation in the discrete time case, measures the correlation of a signal with a delayed copy of itself.
+    - "main cites":
+        tex:
+          cite:
+            - "Automated planning and scheduling":
+                url: "https://en.wikipedia.org/wiki/Automated_planning_and_scheduling"
+
+

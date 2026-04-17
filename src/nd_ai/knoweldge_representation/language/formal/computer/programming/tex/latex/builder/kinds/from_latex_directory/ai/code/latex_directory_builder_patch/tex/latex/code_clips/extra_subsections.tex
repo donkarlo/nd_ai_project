@@ -1,0 +1,66 @@
+\usepackage{titlesec}
+
+\setcounter{secnumdepth}{10}
+\setcounter{tocdepth}{10}
+
+\makeatletter
+
+% ---------- Level 4 ----------
+\titleclass{\subsubsubsection}{straight}[\subsubsection]
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\titleformat{\subsubsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing{\subsubsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+% ---------- Level 5 ----------
+\titleclass{\subsubsubsubsection}{straight}[\subsubsubsection]
+\newcounter{subsubsubsubsection}[subsubsubsection]
+\renewcommand\thesubsubsubsubsection{\thesubsubsubsection.\arabic{subsubsubsubsection}}
+\titleformat{\subsubsubsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsubsubsection}{1em}{}
+\titlespacing{\subsubsubsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+% ---------- Level 6 ----------
+\titleclass{\subsubsubsubsubsection}{straight}[\subsubsubsubsection]
+\newcounter{subsubsubsubsubsection}[subsubsubsubsection]
+\renewcommand\thesubsubsubsubsubsection{\thesubsubsubsubsection.\arabic{subsubsubsubsubsection}}
+\titleformat{\subsubsubsubsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsubsubsubsection}{1em}{}
+\titlespacing{\subsubsubsubsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+% ---------- Level 7 ----------
+\titleclass{\subsubsubsubsubsubsection}{straight}[\subsubsubsubsubsection]
+\newcounter{subsubsubsubsubsubsection}[subsubsubsubsubsection]
+\renewcommand\thesubsubsubsubsubsubsection{\thesubsubsubsubsubsection.\arabic{subsubsubsubsubsubsection}}
+\titleformat{\subsubsubsubsubsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsubsubsubsubsection}{1em}{}
+\titlespacing{\subsubsubsubsubsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+% ---------- Level 8 ----------
+\titleclass{\subsubsubsubsubsubsubsection}{straight}[\subsubsubsubsubsubsection]
+\newcounter{subsubsubsubsubsubsubsection}[subsubsubsubsubsubsection]
+\renewcommand\thesubsubsubsubsubsubsubsection{\thesubsubsubsubsubsubsection.\arabic{subsubsubsubsubsubsubsection}}
+\titleformat{\subsubsubsubsubsubsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsubsubsubsubsubsection}{1em}{}
+\titlespacing{\subsubsubsubsubsubsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+% ---------- Level 9 ----------
+\titleclass{\subsubsubsubsubsubsubsubsection}{straight}[\subsubsubsubsubsubsubsection]
+\newcounter{subsubsubsubsubsubsubsubsection}[subsubsubsubsubsubsubsection]
+\renewcommand\thesubsubsubsubsubsubsubsubsection{\thesubsubsubsubsubsubsubsection.\arabic{subsubsubsubsubsubsubsubsection}}
+\titleformat{\subsubsubsubsubsubsubsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsubsubsubsubsubsubsection}{1em}{}
+\titlespacing{\subsubsubsubsubsubsubsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+% ---------- Level 10 ----------
+\titleclass{\subsubsubsubsubsubsubsubsubsection}{straight}[\subsubsubsubsubsubsubsubsection]
+\newcounter{subsubsubsubsubsubsubsubsubsection}[subsubsubsubsubsubsubsubsection]
+\renewcommand\thesubsubsubsubsubsubsubsubsubsection{\thesubsubsubsubsubsubsubsubsection.\arabic{subsubsubsubsubsubsubsubsubsection}}
+\titleformat{\subsubsubsubsubsubsubsubsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsubsubsubsubsubsubsubsection}{1em}{}
+\titlespacing{\subsubsubsubsubsubsubsubsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+% ---------- TOC entries (dotted lines) ----------
+\newcommand\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\newcommand\l@subsubsubsubsection{\@dottedtocline{5}{9em}{5em}}
+\newcommand\l@subsubsubsubsubsection{\@dottedtocline{6}{11em}{6em}}
+\newcommand\l@subsubsubsubsubsubsection{\@dottedtocline{7}{13em}{7em}}
+\newcommand\l@subsubsubsubsubsubsubsection{\@dottedtocline{8}{15em}{8em}}
+\newcommand\l@subsubsubsubsubsubsubsubsection{\@dottedtocline{9}{17em}{9em}}
+\newcommand\l@subsubsubsubsubsubsubsubsubsection{\@dottedtocline{10}{19em}{10em}}
+
+\makeatother
