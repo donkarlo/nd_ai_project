@@ -1,2 +1,0 @@
-class Bibliography(Composite):
-    pass
