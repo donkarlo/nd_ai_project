@@ -1,12 +1,21 @@
 \RequirePackage{xurl}
 
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    urlcolor=blue
+\makeatletter
+\@ifpackageloaded{hyperref}{}{
+    \RequirePackage{hyperref}
+}
+\makeatother
+
+\AtBeginDocument{
+    \hypersetup{
+        colorlinks=true,
+        linkcolor=blue,
+        urlcolor=blue,
+        citecolor=blue
+    }
 }
 
 \providecommand{\seehere}[1]{\href{#1}{see here}}
 \providecommand{\clickurl}[1]{\href{#1}{url}}
-\providecommand{\seeherefooter}[1]{\href{#1}{see here}\footnote{\url{#1}}}
-\providecommand{\clickurlfooter}[1]{\href{#1}{here}\footnote{\url{#1}}}
+\providecommand{\seeherefooter}[1]{\href{#1}{see here}\footnote{\tiny\url{#1}}}
+\providecommand{\clickurlfooter}[1]{\href{#1}{here}\footnote{\tiny\url{#1}}}
