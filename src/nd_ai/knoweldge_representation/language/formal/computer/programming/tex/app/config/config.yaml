@@ -1,0 +1,8 @@
+latex_comple_sequence:
+   "
+   Compile with LuaLaTeX
+   Run bibliography
+   Compile with LuaLaTeX
+   Compile with LuaLaTeX
+   Open with Okular
+   "
