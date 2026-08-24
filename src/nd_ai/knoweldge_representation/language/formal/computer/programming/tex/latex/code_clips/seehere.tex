@@ -1,9 +1,11 @@
 \RequirePackage{xurl}
 
 \makeatletter
+
 \@ifpackageloaded{hyperref}{}{
     \RequirePackage{hyperref}
 }
+
 \makeatother
 
 \AtBeginDocument{
@@ -15,7 +17,40 @@
     }
 }
 
-\providecommand{\seehere}[1]{\href{#1}{see here}}
-\providecommand{\clickurl}[1]{\href{#1}{url}}
-\providecommand{\seeherefooter}[1]{\href{#1}{see here}\footnote{\tiny\url{#1}}}
-\providecommand{\clickurlfooter}[1]{\href{#1}{here}\footnote{\tiny\url{#1}}}
+
+% Convert only absolute Linux filesystem paths to file:// URLs.
+% Everything else keeps the old behavior.
+\ExplSyntaxOn
+
+\cs_new:Npn \nd_link_target:n #1
+{
+    \regex_match:nnTF
+        { \A / }
+        { #1 }
+        { file://#1 }
+        { #1 }
+}
+
+\NewDocumentCommand{\seehere}{m}
+{
+    \href{\nd_link_target:n{#1}}{see here}
+}
+
+\NewDocumentCommand{\clickurl}{m}
+{
+    \href{\nd_link_target:n{#1}}{url}
+}
+
+\NewDocumentCommand{\seeherefooter}{m}
+{
+    \href{\nd_link_target:n{#1}}{see here}
+    \footnote{\tiny\url{\nd_link_target:n{#1}}}
+}
+
+\NewDocumentCommand{\clickurlfooter}{m}
+{
+    \href{\nd_link_target:n{#1}}{here}
+    \footnote{\tiny\url{\nd_link_target:n{#1}}}
+}
+
+\ExplSyntaxOff
