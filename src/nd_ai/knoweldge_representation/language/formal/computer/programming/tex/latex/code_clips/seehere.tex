@@ -1,11 +1,9 @@
 \RequirePackage{xurl}
 
 \makeatletter
-
 \@ifpackageloaded{hyperref}{}{
     \RequirePackage{hyperref}
 }
-
 \makeatother
 
 \AtBeginDocument{
@@ -17,16 +15,16 @@
     }
 }
 
-
 % Convert only absolute Linux filesystem paths to file:// URLs.
 % Everything else keeps the old behavior.
+
 \ExplSyntaxOn
 
 \cs_new:Npn \nd_link_target:n #1
 {
-    \regex_match:nnTF
-        { \A / }
-        { #1 }
+    \str_if_eq:eeTF
+        { \tl_head:n {#1} }
+        {/}
         { file://#1 }
         { #1 }
 }
