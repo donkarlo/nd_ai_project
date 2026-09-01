@@ -1,5 +1,6 @@
 [project.scripts]
 sociomind = "nd_ai.__main__:main"
+rag = "nd_language_ai.natural.large_model.rag.run:main"
 
 [build-system]
 requires = ["setuptools>=64", "wheel"]
@@ -19,6 +20,12 @@ dependencies = [
 dev = [
     "mypy>=1.10",
     "build>=1.2.1", # convenience: lets you run `python -m builder`
+]
+rag = [
+    "PySide6>=6.7",
+    "pypdf>=5.0",
+    "numpy>=1.26",
+    "llama-cpp-python>=0.3",
 ]
 
 [tool.mypy]
