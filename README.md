@@ -7,7 +7,7 @@ The goal of this project is to support work related to semiotics, with natural l
 The broader design prioritizes the hierarchy of corpora in the file system and is intended to support structured sources such as YAML and JSON as well as ordinary text documents.
 
 ## Local RAG / QA Application
-**QA window**
+c**QA window**
 ![The QA window](assets/img_0.jpg)
 
 **settings**
