@@ -1,0 +1,130 @@
+% deep_structure.tex
+% Reusable support for deep section hierarchies and deeply nested itemize lists.
+
+% --------------------------------------------------------------------------
+% Deep itemize lists
+% --------------------------------------------------------------------------
+\RequirePackage{enumitem}
+
+% Practical maximum. Increase this if you really need more levels.
+\setlistdepth{20}
+\renewlist{itemize}{itemize}{20}
+
+% Default label for every level, with a few visual variations near the top.
+\setlist[itemize]{label=\textbullet}
+\setlist[itemize,2]{label=--}
+\setlist[itemize,3]{label=$\circ$}
+\setlist[itemize,4]{label=$\diamond$}
+
+% --------------------------------------------------------------------------
+% Deep section hierarchy
+% --------------------------------------------------------------------------
+% Standard article levels:
+%   1 = \section
+%   2 = \subsection
+%   3 = \subsubsection
+%
+% Extra levels defined here:
+%   4 ... 10
+%
+% Recommended interface:
+%   \DeepSection{4}{Title}
+%   \DeepSection{5}{Title}
+%   ...
+%
+% The maximum can be extended by following the same pattern below.
+
+\setcounter{secnumdepth}{10}
+\setcounter{tocdepth}{10}
+
+\makeatletter
+
+\newcounter{ndsectionfour}[subsubsection]
+\renewcommand{\thendsectionfour}{\thesubsubsection.\arabic{ndsectionfour}}
+\newcommand{\ndsectionfour}{%
+  \@startsection{ndsectionfour}{4}{\z@}%
+    {2.5ex \@plus 1ex \@minus .2ex}%
+    {1.0ex \@plus .2ex}%
+    {\normalfont\normalsize\bfseries}}
+
+\newcounter{ndsectionfive}[ndsectionfour]
+\renewcommand{\thendsectionfive}{\thendsectionfour.\arabic{ndsectionfive}}
+\newcommand{\ndsectionfive}{%
+  \@startsection{ndsectionfive}{5}{\z@}%
+    {2.2ex \@plus 1ex \@minus .2ex}%
+    {.8ex \@plus .2ex}%
+    {\normalfont\normalsize\bfseries}}
+
+\newcounter{ndsectionsix}[ndsectionfive]
+\renewcommand{\thendsectionsix}{\thendsectionfive.\arabic{ndsectionsix}}
+\newcommand{\ndsectionsix}{%
+  \@startsection{ndsectionsix}{6}{\z@}%
+    {2.0ex \@plus 1ex \@minus .2ex}%
+    {.7ex \@plus .2ex}%
+    {\normalfont\small\bfseries}}
+
+\newcounter{ndsectionseven}[ndsectionsix]
+\renewcommand{\thendsectionseven}{\thendsectionsix.\arabic{ndsectionseven}}
+\newcommand{\ndsectionseven}{%
+  \@startsection{ndsectionseven}{7}{\z@}%
+    {1.8ex \@plus 1ex \@minus .2ex}%
+    {.6ex \@plus .2ex}%
+    {\normalfont\small\bfseries}}
+
+\newcounter{ndsectioneight}[ndsectionseven]
+\renewcommand{\thendsectioneight}{\thendsectionseven.\arabic{ndsectioneight}}
+\newcommand{\ndsectioneight}{%
+  \@startsection{ndsectioneight}{8}{\z@}%
+    {1.6ex \@plus 1ex \@minus .2ex}%
+    {.5ex \@plus .2ex}%
+    {\normalfont\small\bfseries}}
+
+\newcounter{ndsectionnine}[ndsectioneight]
+\renewcommand{\thendsectionnine}{\thendsectioneight.\arabic{ndsectionnine}}
+\newcommand{\ndsectionnine}{%
+  \@startsection{ndsectionnine}{9}{\z@}%
+    {1.4ex \@plus 1ex \@minus .2ex}%
+    {.4ex \@plus .2ex}%
+    {\normalfont\small\bfseries}}
+
+\newcounter{ndsectionten}[ndsectionnine]
+\renewcommand{\thendsectionten}{\thendsectionnine.\arabic{ndsectionten}}
+\newcommand{\ndsectionten}{%
+  \@startsection{ndsectionten}{10}{\z@}%
+    {1.2ex \@plus 1ex \@minus .2ex}%
+    {.3ex \@plus .2ex}%
+    {\normalfont\small\bfseries}}
+
+% Reuse the subsubsection TOC layout for deeper levels.
+\let\l@ndsectionfour\l@subsubsection
+\let\l@ndsectionfive\l@subsubsection
+\let\l@ndsectionsix\l@subsubsection
+\let\l@ndsectionseven\l@subsubsection
+\let\l@ndsectioneight\l@subsubsection
+\let\l@ndsectionnine\l@subsubsection
+\let\l@ndsectionten\l@subsubsection
+
+% Generic interface for levels 1--10.
+\newcommand{\DeepSection}[2]{%
+  \ifcase#1\relax
+    \PackageError{deep_structure}{Section level must be between 1 and 10}{}%
+  \or \section{#2}%
+  \or \subsection{#2}%
+  \or \subsubsection{#2}%
+  \or \ndsectionfour{#2}%
+  \or \ndsectionfive{#2}%
+  \or \ndsectionsix{#2}%
+  \or \ndsectionseven{#2}%
+  \or \ndsectioneight{#2}%
+  \or \ndsectionnine{#2}%
+  \or \ndsectionten{#2}%
+  \else
+    \PackageError{deep_structure}{Section level must be between 1 and 10}{}%
+  \fi
+}
+
+% Familiar aliases for the first extra levels.
+\let\subsubsubsection\ndsectionfour
+\let\subsubsubsubsection\ndsectionfive
+
+\makeatother
