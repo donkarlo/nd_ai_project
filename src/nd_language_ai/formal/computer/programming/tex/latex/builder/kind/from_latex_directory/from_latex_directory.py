@@ -1,9 +1,9 @@
 from nd_ai.knoweldge_representation.language.formal.computer.programming.tex.latex.builder.builder import Builder
 from nd_ai.knoweldge_representation.language.formal.computer.programming.tex.latex.latex import \
     Latex
-from nd_ai.knoweldge_representation.language.formal.computer.programming.tex.latex.parts.environment.kind.document.document import \
+from nd_ai.knoweldge_representation.language.formal.computer.programming.tex.latex.part.environment.kind.document.document import \
     Document
-from nd_ai.knoweldge_representation.language.formal.computer.programming.tex.latex.parts.preamble.control_sequence.documentclass.documentclass import \
+from nd_ai.knoweldge_representation.language.formal.computer.programming.tex.latex.part.preamble.control_sequence.documentclass.documentclass import \
     Documentclass
 from nd_utility.os.file_system.path.directory import Directory
 from nd_utility.os.file_system.path.file import File
